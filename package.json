@@ -1,0 +1,23 @@
+{
+  "name": "Next.Mist",
+  "version": "1.0.0",
+  "description": "Next.Mist port for Ghost",
+  "engines": {
+      "ghost": ">=1.2.0"
+  },
+  "author": {
+      "name": "Balthild",
+      "email": "ibalthild@gmail.com",
+      "url": "https://balthild.com"
+  },
+  "repository": "github:balthild/ghost-theme-mist",
+  "license": "GPL-3.0",
+  "scripts": {
+     "styl": "mkdir -p assets/dist && stylus src/styl/main.styl -o assets/dist/main.css",
+     "lib": "rm -rf assets/next && cp -r next/source assets/next",
+     "setup": "npm run styl && npm run lib"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.5"
+  }
+}

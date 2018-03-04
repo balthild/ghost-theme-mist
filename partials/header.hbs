@@ -1,0 +1,20 @@
+<header id="header" class="header">
+    <div class="header-inner">
+        <div class="site-meta ">
+            <div class="custom-logo-site-title">
+                <a href="{{@blog.url}}" class="brand" rel="start">
+                    <span class="logo-line-before"><i></i></span>
+                    <span class="site-title">{{@blog.title}}</span>
+                    <span class="logo-line-after"><i></i></span>
+                </a>
+            </div>
+            <p class="site-subtitle">{{@blog.description}}</p>
+        </div>
+
+        <nav class="site-nav">
+            {{#if @blog.navigation}}
+                {{navigation}}
+            {{/if}}
+        </nav>
+    </div>
+</header>

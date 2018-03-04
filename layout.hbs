@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="theme-next mist use-motion">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link href="//fonts.googleapis.com/css?family=Monda:300,400,400italic,700|Roboto Slab:400|Lobster Two:700|PT Mono:400,400italic,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{asset "dist/main.css"}}" />
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+
+    <div class="container one-collumn">
+
+        {{> "header"}}
+
+        {{{body}}}
+
+        {{> "footer"}}
+
+    </div>
+
+    {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+    {{{block "scripts"}}}
+
+    <script type="text/javascript" id="hexo.configurations">
+        var NexT = window.NexT || {};
+        var CONFIG = {
+            scheme: "Mist",
+            sidebar: {
+                position: "left",
+                display: "remove"
+            },
+            fancybox: false,
+            motion: {
+                enable: true,
+                async: false,
+                transition: {
+                    post_block: "fadeIn",
+                    post_header: "slideDownIn",
+                    post_body: "slideDownIn",
+                    coll_header: "slideLeftIn"
+                }
+            }
+        };
+    </script>
+
+    <script type="text/javascript" src="{{asset "next/lib/jquery/index.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/lib/jquery_lazyload/jquery.lazyload.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/lib/velocity/velocity.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/lib/velocity/velocity.ui.min.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/js/src/utils.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/js/src/motion.js"}}"></script>
+    <script type="text/javascript" src="{{asset "next/js/src/bootstrap.js"}}"></script>
+
+    {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+</body>
+</html>

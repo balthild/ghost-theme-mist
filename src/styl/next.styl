@@ -1,0 +1,16 @@
+hexo-config(name) {
+    name == 'scheme' ? 'Mist' :
+    name == 'highlight_theme' ? 'normal' :
+    name == 'font.global.family' ? 'Monda' :
+    name == 'font.logo.family' ? 'Lobster Two' :
+    name == 'font.headings.family' ? 'Roboto Slab' :
+    name == 'font.posts.family' ? 'Monda' :
+    name == 'font.codes.family' ? 'PT Mono' :
+    name == 'motion.transition.post_block' ? 'fadeIn' :
+    name == 'motion.transition.post_header' ? 'slideDownIn' :
+    name == 'motion.transition.post_body' ? 'slideDownIn' :
+    name == 'motion.transition.coll_header' ? 'slideLeftIn' :
+    '';
+}
+
+@import './next/source/css/main.styl';

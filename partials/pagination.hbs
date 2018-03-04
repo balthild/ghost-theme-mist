@@ -1,0 +1,5 @@
+<nav class="pagination">
+    <a class="extend prev" {{#if prev}}href="{{page_url prev}}"{{else}}style="visibility:hidden"{{/if}}>&laquo;</a>
+    <span class="page-number current">Page {{page}} of {{pages}}</span>
+    <a class="extend next" {{#if next}}href="{{page_url next}}"{{else}}style="visibility:hidden"{{/if}}>&raquo;</a>
+</nav>
