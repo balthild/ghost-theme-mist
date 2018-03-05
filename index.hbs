@@ -21,17 +21,36 @@
                                 </div>
                             </header>
                             <div class="post-body">
-                                {{content words="80"}}
+                                {{content}}
                                 <div class="post-more-link text-center">
                                     <a class="btn" href="{{url}}">阅读全文 »</a>
                                 </div>
                             </div>
-                            <div></div>
                             <footer class="post-footer">
                                 <div class="post-eof"></div>
                             </footer>
                         </article>
                     {{/foreach}}
+                    <script>
+                        var contents = document.querySelectorAll('.kg-card-markdown');
+                        for (var i = 0; i < contents.length; ++i) {
+                            var nodes = contents[i].querySelectorAll('.kg-card-markdown > *');
+                            if (nodes.length <= 5) {
+                                contents[i].parentElement.querySelector('.post-more-link').style.display = 'none';
+                                continue;
+                            }
+
+                            var more = Array.from(nodes).slice(5);
+                            for (var j = 0; j < more.length; ++j) {
+                                contents[i].removeChild(more[j]);
+                            }
+
+                            var h = /^[Hh][1-6]$/;
+                            if (h.test(nodes[4].tagName) && !h.test(nodes[3].tagName)) {
+                                contents[i].removeChild(nodes[4]);
+                            }
+                        }
+                    </script>
                 </section>
 
                 {{pagination}}
